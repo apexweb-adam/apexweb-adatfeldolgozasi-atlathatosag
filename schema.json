@@ -1,0 +1,2408 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-08-02",
+  "service": "HairHungary központi ügyfél-, beteg- és működéskezelő rendszer",
+  "sourceCommit": "01b1859808d00dd498b8c2df1cf90baaad3fbf4f",
+  "migrationRange": "0001-0034",
+  "tableCount": 33,
+  "note": "A jegyzék kizárólag adatszerkezetet tartalmaz; személyes, egészségügyi vagy üzleti rekordot nem.",
+  "exportEncodings": [
+    "UTF-8 CSV",
+    "JSON"
+  ],
+  "tables": [
+    {
+      "name": "hairhungary_access_log",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_role",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "action",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "entity",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "entity_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "summary",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_ai_guardrail",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "kb_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "forbidden_topics",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "test_questions",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "tested_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "tester",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "retest_cadence_months",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "next_retest_due",
+          "type": "date",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "known_limitations",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_anamnezis",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "lead_id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "valaszok",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "terv_rendszer_szoveg",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "terv_szoveg",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "allapot",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "rogzito_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "rogzito_nev",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "rogzito_szerepkor",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "veglegesitette_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "veglegesitette_nev",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "veglegesitve_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_appointments",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "patient_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "lead_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "start",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "end",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "orvos",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "kezelo",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "asszisztens",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "reminder",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "google_event_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_atveteli",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "module",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "criterion",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "tester",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "tested_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "expected_result",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actual_result",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "result",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "defect",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "fix_deadline",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "retest_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_audit_entries",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "action",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "entity",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "entityId",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "summary",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_role",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "request_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "ip_hash",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_auto_messages",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "audience",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "treatment",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "channel",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "language",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "day_offset",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "subject",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "body",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "sort",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "auto_send",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_beuzemeles",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "kb_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "chatbot_languages",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "guardrail_ruleset_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "approved_chatbot_opening",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "approved_phone_opening",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "subprocessor_list_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "data_flow_map_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "backup_settings_note",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "export_test_result",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "permission_matrix_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "approver_name",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "approved_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_communications",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "lead_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "patient_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "channel",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "direction",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "summary",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_export_protokoll",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "trigger",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "requested_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "format",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "data_scope",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "checklist_complete",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "export_deadline",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "delivered_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "deletion_certificate_issued",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "deletion_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "retained_for_legal_reason",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_hivasrogzites",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "purpose",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "legal_basis",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "special_category_basis",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "recording_retention_days",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "transcript_retention_days",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "accessible_roles",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "data_regions",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "processor_entities",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "model_training_excluded",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "disclosure_text",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "opt_out_alternative",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "effective_from",
+          "type": "date",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "approved_by",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_import_idempotency",
+      "columns": [
+        {
+          "name": "idempotency_key",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "payload_hash",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "entity",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "response",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_intakes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "token_hash",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "patient_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "answers",
+          "type": "jsonb",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "expires_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "submitted_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_inventory_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "unit",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "stock",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "reorder_level",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "expiry",
+          "type": "date",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_invoices",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "payment_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "number",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "amount",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "issued_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_jegyzetek",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "lead_id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "szoveg",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "szerzo_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "szerzo_nev",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "szerzo_szerepkor",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "visszavont_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "visszavonta_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "visszavonta_nev",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "visszavonas_indok",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_lead_status_history",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "lead_id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "from_status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "to_status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "from_stage",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "to_stage",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "changed_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_leads",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "treatment",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "topic",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "language",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "preferred_window",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "callback_requested",
+          "type": "boolean",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "vapi_call_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "raw",
+          "type": "jsonb",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "treatment_type",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "region",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "region_normalized",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "source",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "stage",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "consultation_date",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "payment_status",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "payment_link",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "payment_expires_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "paid_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "assigned_doctor",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "assigned_to",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "raw_payload",
+          "type": "jsonb",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "status_history",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "konzultacio_kimenet",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "segment",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "attempt_count",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "last_contact_channel",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "wants_consultation",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "lost_reason",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "attribution",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "import_source_ref",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "treatment_type_clinical",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "treatment_package",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_leave_records",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "staff_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "from",
+          "type": "date",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "to",
+          "type": "date",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_level_azonositok",
+      "columns": [
+        {
+          "name": "message_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "lead_id",
+          "type": "uuid",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "felado_email",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "felulvizsgalat_oka",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_manual_mode_events",
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "command_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "command_fingerprint",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "occurred_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_role",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor_source",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "action",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "request_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "reason",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "state_after",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_manual_mode_state",
+      "columns": [
+        {
+          "name": "state_key",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "mode",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "updated_by",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "reason",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "pending",
+          "type": "jsonb",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "revision",
+          "type": "bigint",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_operational_evidence_events",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "domain",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "scope_key",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "stream_key",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "event_type",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "event_key",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "payload_sha256",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "idempotency_sha256",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "payload",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "occurred_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "recorded_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "actor",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_outbound_queue",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "source_key",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "source",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "source_message_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "lead_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "lead_name",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "channel",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "recipient",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "subject",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "body",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "original_subject",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "original_body",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "edited",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "template_updated",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "decided_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "sent_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_patients",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "lead_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "photo_url",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "intake_summary",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "plan",
+          "type": "jsonb",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "trichoscopy",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "internal_notes",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "tags",
+          "type": "_text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "documents",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "consent",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "taj_ciphertext",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_payments",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "patient_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "lead_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "kind",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "amount",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "orvos",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "beavatkozas",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "paid_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "invoice_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_quotes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "patient_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "lead_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "customer_name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "graft_szam",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "unit_price",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "deposit_pct",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "total",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "deposit",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "remaining",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "sales_staff",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "co_owners",
+          "type": "_text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_schema_rollout_releases",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "contract_version",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "project_ref",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "release_commit",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "manifest_through",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "local_through",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "migration_count",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "forward_migration_count",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "manifest_sha256",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "forward_ledger_sha256",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "catalog_sha256",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "manifest",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "forward_migrations",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "catalog",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "certified_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "certified_by",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_sequences",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "trigger",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "steps",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_staff",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "staff_key",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "role",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_stock_movements",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "item_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "direction",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "quantity",
+          "type": "numeric",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "appointment_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "patient_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_system_state",
+      "columns": [
+        {
+          "name": "state_key",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "payload",
+          "type": "jsonb",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "revision",
+          "type": "bigint",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "hairhungary_vapi_webhook_events",
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "payload_sha256",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "attempts",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "max_attempts",
+          "type": "integer",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "claim_token",
+          "type": "uuid",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "claimed_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "lease_until",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "next_retry_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "response",
+          "type": "jsonb",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "last_error",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "incident_id",
+          "type": "text",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "incident_claim_token",
+          "type": "uuid",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "incident_lease_until",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "completed_at",
+          "type": "timestamp with time zone",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ]
+    }
+  ],
+  "foreignKeys": [
+    {
+      "toTable": "hairhungary_leads",
+      "toColumn": "id",
+      "fromTable": "hairhungary_anamnezis",
+      "fromColumn": "lead_id"
+    },
+    {
+      "toTable": "hairhungary_patients",
+      "toColumn": "id",
+      "fromTable": "hairhungary_intakes",
+      "fromColumn": "patient_id"
+    },
+    {
+      "toTable": "hairhungary_leads",
+      "toColumn": "id",
+      "fromTable": "hairhungary_jegyzetek",
+      "fromColumn": "lead_id"
+    },
+    {
+      "toTable": "hairhungary_leads",
+      "toColumn": "id",
+      "fromTable": "hairhungary_lead_status_history",
+      "fromColumn": "lead_id"
+    },
+    {
+      "toTable": "hairhungary_leads",
+      "toColumn": "id",
+      "fromTable": "hairhungary_level_azonositok",
+      "fromColumn": "lead_id"
+    }
+  ]
+}

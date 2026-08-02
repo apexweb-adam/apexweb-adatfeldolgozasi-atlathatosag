@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apex Web HairHungary adatfeldolgozási és szolgáltatóváltási átláthatósági nyilvántartás.">
+  <title>Apex Web | Adatfeldolgozási átláthatóság</title>
+  <style>
+    :root { color-scheme: light; --ink:#152238; --muted:#526175; --line:#d9e0e8; --bg:#f5f7fa; --card:#fff; --accent:#0b5cab; --ok:#0d6b4f; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(1060px, calc(100% - 32px)); margin:48px auto 80px; }
+    header, section { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:clamp(22px,4vw,42px); margin-bottom:20px; }
+    h1 { font-size:clamp(2rem,5vw,3.5rem); line-height:1.08; margin:0 0 18px; letter-spacing:-.035em; }
+    h2 { font-size:1.45rem; margin:0 0 14px; }
+    h3 { font-size:1.05rem; margin:26px 0 8px; }
+    p { margin:10px 0; }
+    a { color:var(--accent); }
+    .eyebrow { color:var(--accent); font-weight:750; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; }
+    .lead { font-size:1.15rem; max-width:78ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:6px 11px; color:var(--muted); background:#f9fbfd; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:14px; }
+    .item { border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .item strong { display:block; margin-bottom:5px; }
+    .status { color:var(--ok); font-weight:700; }
+    ol, ul { padding-left:1.3rem; }
+    code { background:#eef3f8; border-radius:5px; padding:2px 5px; }
+    footer { color:var(--muted); text-align:center; padding:20px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Apex Web • nyilvános nyilvántartás</div>
+    <h1>Adatfeldolgozási és szolgáltatóváltási átláthatóság</h1>
+    <p class="lead">A HairHungary felhőalapú rendszer szolgáltatóváltási eljárásának, hordozható adatainak, formátumainak, adatszerkezetének és infrastruktúra-joghatóságainak verziózott összefoglalója.</p>
+    <div class="meta">
+      <span class="pill">Azonosító: HH-DATA-ACT-2026-08-02-01</span>
+      <span class="pill">Közzétéve: 2026. augusztus 2.</span>
+      <span class="pill">Szolgáltató: Tokár Ádám e.v., Apex Web</span>
+    </div>
+    <p><a href="register.json">Géppel olvasható nyilvántartás</a> · <a href="schema.json">33 tábla és 366 mező adatszerkezete</a></p>
+  </header>
+
+  <section>
+    <h2>Mit jelent ez a nyilvántartás?</h2>
+    <p>Az Európai Parlament és a Tanács (EU) 2023/2854 rendelete szerinti szerződéses átláthatóságot segíti. Nem tartalmaz személyes adatot, betegadatot, titkos kulcsot vagy ügyfélrekordot. Nem helyettesíti az adatkezelési tájékoztatót, az adatfeldolgozói megállapodást, a szolgáltatói bizonyítékcsomagot vagy a Hair-Aesthetic Clinic Kft. adatvédelmi döntéseit.</p>
+  </section>
+
+  <section>
+    <h2>Szolgáltatóváltás menete</h2>
+    <ol>
+      <li>A Megrendelő írásban választ másik, azonos szolgáltatástípusú szolgáltatót, saját informatikai környezetet vagy törlést, és a kérelmet az <a href="mailto:info@apexweb.hu">info@apexweb.hu</a> címre küldi.</li>
+      <li>A Vállalkozó 3 munkanapon belül visszaigazol, kapcsolattartót és ellenőrzőlistát ad.</li>
+      <li>A váltási értesítési idő legfeljebb 2 hónap. A szokásos átállási idő legfeljebb 30 naptári nap.</li>
+      <li>Műszaki megvalósíthatatlanság esetén a Vállalkozó 14 munkanapon belül részletes indokolást ad; az alternatív idő legfeljebb 7 hónap. A Megrendelő egy alkalommal hosszabbíthat.</li>
+      <li>Az átállás alatt fennmarad a szerződött működés, a folytonosság és a biztonsági szint. Sikeres átállás után legalább 30 napos, kizárólag olvasási és adatkiviteli visszanyerési idő következik.</li>
+      <li>A dokumentált átvétel és visszanyerési idő után a hordozható adatok törlése és a törlési igazolás kiadása következik, ha jogszabály nem ír elő további megőrzést.</li>
+    </ol>
+    <p>2027. január 12-től a kötelező váltási feladatokra külön váltási díj nem számítható fel. Addig legfeljebb a közvetlenül felmerült, előre és tételesen közölt költség terhelhető át. A kötelező váltáson túli, külön megrendelt munka nem akadályozhatja a váltást.</p>
+  </section>
+
+  <section>
+    <h2>Adatok és formátumok</h2>
+    <div class="grid">
+      <div class="item"><strong>Ügyfél- és betegút-adatok</strong>Érdeklődők, időpontok, állapotok, feladatok, jegyzetek, klinikai jóváhagyási állapotok és hozzájárulási metaadatok.</div>
+      <div class="item"><strong>Kommunikáció és dokumentumok</strong>Levélszálak, válaszpiszkozatok, jóváhagyások, kézbesítési állapotok, feltöltött dokumentumok és képek.</div>
+      <div class="item"><strong>Működés és bizonyíték</strong>Pénzügyi előkészítés, készlet, munkatársak, naplók, incidensek, mentés, visszaállítás, átvétel és megfelelőség.</div>
+      <div class="item"><strong>Alapformátumok</strong>UTF-8 CSV és JSON; dokumentum és kép eredeti formátumban, JSON vagy CSV metaadatjegyzékkel; PDF emberi ellenőrzési összesítésként.</div>
+    </div>
+    <p>A részletes, rekordmentes adatmodell a <a href="schema.json"><code>schema.json</code></a> fájlban található. A 33 táblát és 366 mezőt a 0001-0034 migrációs lánc izolált PostgreSQL-visszajátszásából állítottuk elő.</p>
+    <p>A hitelesített felületek: <code>/api/export</code>, <code>/api/backup/export</code> és <code>/api/export-protokoll</code>. Ezek nem nyilvános adatletöltő pontok; minden hozzáférés jogosultsághoz, naplózáshoz és biztonságos átadási csatornához kötött.</p>
+  </section>
+
+  <section>
+    <h2>Mi nem része az adatkivitelnek?</h2>
+    <p>Nem átadandó a Vállalkozó általános forráskódja, keretrendszere, programkönyvtára, algoritmusa, más ügyfél adata, üzleti titka, valamint jelszó, titkos kulcs, munkamenetkulcs és a szolgáltatás biztonságát veszélyeztető belső sebezhetőségi adat. A kizárás nem terjedhet túl a szükséges mértéken, és nem akadályozhatja a Megrendelő saját adatainak hordozhatóságát.</p>
+  </section>
+
+  <section>
+    <h2>Infrastruktúra és joghatóságok</h2>
+    <div class="grid">
+      <div class="item"><strong>Supabase</strong><span class="status">Elsődleges régió: Frankfurt, Németország</span><br>Adatbázis és privát objektumtárolás, AWS eu-central-1.</div>
+      <div class="item"><strong>Netlify</strong>Amerikai szerződő fél, globális peremhálózat. Tartós betegadat-tárolás nem engedélyezett; a műszaki napló adatminimalizált.</div>
+      <div class="item"><strong>Google és OpenAI</strong>Ír szerződő jogi személyek. Betegnév a Naptárba csak külön jóváhagyással; az OpenAI felé nyers látogatói vagy beteghez köthető tartalom nem küldhető.</div>
+      <div class="item"><strong>Telefonos útvonal</strong>Vapi, Soniox, ElevenLabs és Telnyx. A Soniox EU-projekt rendelkezésre áll, de a teljes útvonal valós személyes adatos használata a szolgáltatói, régiós és klinikai kapuk lezárásáig tiltott.</div>
+      <div class="item"><strong>E-mail</strong>Resend, amerikai szerződő fél. Egészségügyi tartalom csak külön jóváhagyott és adatminimalizált folyamatban küldhető.</div>
+    </div>
+    <p>A személyes adatok EGT-n kívüli továbbítására az alkalmazandó adatfeldolgozói megállapodás, uniós általános adatvédelmi kikötések, szükség szerinti adattovábbítási hatásvizsgálat és kiegészítő intézkedések irányadók.</p>
+  </section>
+
+  <section>
+    <h2>Jogellenes harmadik országbeli hozzáférés elleni intézkedések</h2>
+    <ul>
+      <li>EGT-n belüli elsődleges adatbázis-régió, adatminimalizálás és célhoz kötött hozzáférés;</li>
+      <li>titkosítás, legkisebb jogosultság, többtényezős hitelesítés, elkülönített titokkezelés és módosítás ellen védett naplózás;</li>
+      <li>szolgáltatói adatfeldolgozói feltételek, adattovábbítási garanciák és kockázatalapú kiegészítő intézkedések;</li>
+      <li>a jogellenes vagy túl széles megkeresés vizsgálata és jogszerű keretek közötti megtámadása;</li>
+      <li>az ügyfél értesítése, ha azt jogszabály nem tiltja, és kizárólag a kötelező legkisebb adatkör kiadása;</li>
+      <li>a nem bizonyított régiójú vagy megőrzésű adatáramlás alapértelmezett tiltása.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Kapcsolat és változáskezelés</h2>
+    <p>A nyilvántartás felelőse: Tokár Ádám egyéni vállalkozó, Apex Web márkanév alatt. Kapcsolat: <a href="mailto:info@apexweb.hu">info@apexweb.hu</a>.</p>
+    <p>A nyilvántartás frissítése nem módosítja egyoldalúan a szerződést. Eltérés esetén a kötelező jog és a HairHungary szerződés Megrendelőre kedvezőbb rendelkezése irányadó.</p>
+  </section>
+
+  <footer>HH-DATA-ACT-2026-08-02-01 · Adatot nem tartalmazó nyilvános megfelelőségi nyilvántartás</footer>
+</main>
+</body>
+</html>

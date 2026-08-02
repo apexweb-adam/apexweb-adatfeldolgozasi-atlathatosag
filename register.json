@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "registerVersion": "HH-DATA-ACT-2026-08-02-01",
+  "publishedAt": "2026-08-02",
+  "language": "hu",
+  "provider": {
+    "legalName": "Tokár Ádám egyéni vállalkozó",
+    "brand": "Apex Web",
+    "country": "Magyarország",
+    "contact": "info@apexweb.hu"
+  },
+  "service": {
+    "name": "HairHungary központi ügyfél-, beteg- és működéskezelő rendszer",
+    "type": "előfizetéses, felhőalapú üzleti szoftverszolgáltatás",
+    "dataStructureRegister": "schema.json"
+  },
+  "switching": {
+    "requestChannel": "info@apexweb.hu",
+    "acknowledgementBusinessDays": 3,
+    "maximumNoticeMonths": 2,
+    "standardTransitionCalendarDays": 30,
+    "technicalInfeasibilityNoticeBusinessDays": 14,
+    "maximumAlternativeTransitionMonths": 7,
+    "customerExtensionCount": 1,
+    "minimumRetrievalCalendarDays": 30,
+    "standardFormats": ["UTF-8 CSV", "JSON", "eredeti dokumentum- és képformátum", "PDF ellenőrzési összesítés"],
+    "authenticatedInterfaces": ["/api/export", "/api/backup/export", "/api/export-protokoll"],
+    "publicAnonymousExport": false,
+    "switchingChargeFreeFrom": "2027-01-12"
+  },
+  "portableCategories": [
+    "érdeklődői és ügyfélkapcsolati adatok",
+    "beteg- és betegút-szervezési adatok",
+    "feladatok, jegyzetek, állapotok és felelősi hozzárendelések",
+    "kommunikációk, levélszálak, melléklet-metaadatok, válaszpiszkozatok és jóváhagyások",
+    "a szerződés szerint ténylegesen tárolt telefonos metaadatok és jóváhagyott kimenetek",
+    "naptári események és szinkronizációs állapotok",
+    "árajánlati, előleg-, pénzügyi, számlázási előkészítő, marketing-, jelentési, készlet- és munkatársi adatok",
+    "feltöltött dokumentumok és képek",
+    "ügyfélspecifikus tudásbázis, sablonok és klinikai szabályok",
+    "mesterségesintelligencia-válaszpiszkozatok, jóváhagyott szövegek és emberi módosítások",
+    "nem titkos felhasználói, szerepköri és konfigurációs adatok",
+    "ellenőrzési, incidens-, rendelkezésreállási, mentési, visszaállítási, átvételi és megfelelőségi bizonyítékok",
+    "jogszerűen aktivált EESZT-sorállapotok, visszaigazolások és hibaállapotok",
+    "mezőleírások, kapcsolati kulcsok, kódlisták, verziók és időbélyegek"
+  ],
+  "excludedCategories": [
+    "nem ügyfélspecifikus forráskód, keretrendszer, programkönyvtár, modell, algoritmus és fejlesztői módszer",
+    "a szolgáltató vagy harmadik személy olyan szellemi tulajdona és üzleti titka, amelyre az ügyfélnek nincs önálló joga",
+    "más ügyfélhez tartozó vagy az ügyfélhez nem rendelhető összevont belső adat",
+    "jelszó, jelszólenyomat, titkosítási kulcs, programozási interfész-kulcs, munkamenetkulcs és helyreállítási kód",
+    "a biztonságot veszélyeztető belső sebezhetőségi, csalásmegelőzési és szolgáltatásintegritási adat",
+    "olyan harmadik féltől származó adat vagy eszköz, amelyet jogszabály vagy szerződés alapján nem lehet továbbadni"
+  ],
+  "infrastructure": [
+    {
+      "provider": "Supabase Pte. Ltd.",
+      "function": "elsődleges adatbázis és privát objektumtárolás",
+      "contractualEntityJurisdiction": "Szingapúr",
+      "primaryProcessingRegion": "Németország, Frankfurt, AWS eu-central-1",
+      "livePersonalDataStatus": "csak a szerződéses élesítési kapuk lezárása után"
+    },
+    {
+      "provider": "Netlify, Inc.",
+      "function": "alkalmazás-kiszolgálás, függvények és globális peremhálózat",
+      "contractualEntityJurisdiction": "Amerikai Egyesült Államok",
+      "primaryProcessingRegion": "globális peremhálózat; a kérések kiszolgálási helye dinamikus",
+      "livePersonalDataStatus": "adatminimalizált műszaki napló; tartós betegadat-tárolás nem engedélyezett"
+    },
+    {
+      "provider": "Google Ireland Limited",
+      "function": "naptár-szinkronizáció",
+      "contractualEntityJurisdiction": "Írország",
+      "primaryProcessingRegion": "a Google Workspace alkalmazandó szerződéses és régiós beállításai szerint",
+      "livePersonalDataStatus": "betegnév csak klinikai adatvédelmi jóváhagyás és szolgáltatói bizonyíték után"
+    },
+    {
+      "provider": "OpenAI Ireland Limited",
+      "function": "jóváhagyott nyilvános GYIK-válasz nyelvi megfogalmazása",
+      "contractualEntityJurisdiction": "Írország",
+      "primaryProcessingRegion": "az alkalmazandó OpenAI üzleti adatkezelési feltételek szerint",
+      "livePersonalDataStatus": "nyers látogatói üzenet, név, telefonszám és egészségügyi tartalom nem továbbítható; tartós válaszállapot-tárolás kikapcsolva"
+    },
+    {
+      "provider": "Plus Five Five, Inc. (Resend)",
+      "function": "jóváhagyott e-mail kézbesítés",
+      "contractualEntityJurisdiction": "Amerikai Egyesült Államok",
+      "primaryProcessingRegion": "a szolgáltató alkalmazandó infrastruktúrája szerint",
+      "livePersonalDataStatus": "egészségügyi tartalom csak külön adatminimalizálási és adatvédelmi jóváhagyással"
+    },
+    {
+      "provider": "Vapi Inc., Soniox Inc., Eleven Labs Inc. és Telnyx LLC",
+      "function": "telefonos mesterséges intelligencia, beszédfelismerés, beszéd-előállítás és távközlés",
+      "contractualEntityJurisdiction": "több joghatóság, köztük Amerikai Egyesült Államok; a Soniox EU-projekt uniós régiójú",
+      "primaryProcessingRegion": "a teljes végponti útvonal szolgáltatói bizonyítása folyamatban",
+      "livePersonalDataStatus": "valós személyes vagy egészségügyi adatot érintő használat nem engedélyezett a szerződéses kapuk lezárásáig"
+    }
+  ],
+  "thirdCountryAccessMeasures": [
+    "EGT-n belüli elsődleges adatbázis-régió és adatminimalizálás",
+    "szerepkör-alapú hozzáférés, legkisebb jogosultság és többtényezős hitelesítés",
+    "átvitel közbeni és nyugalmi titkosítás, elkülönített titokkezelés és naplózás",
+    "adatfeldolgozói megállapodás, uniós általános adatvédelmi kikötések és szükség szerinti adattovábbítási hatásvizsgálat",
+    "jogellenes vagy túl széles kormányzati megkeresés vizsgálata és jogszerű keretek közötti megtámadása",
+    "az ügyfél értesítése, ha azt jogszabály nem tiltja",
+    "csak a kötelező legkisebb adatkör kiadása és a megkeresés dokumentálása",
+    "valós betegadatot érintő szolgáltatói útvonal tiltása mindaddig, amíg a régió, megőrzés és adattovábbítási garancia nincs bizonyítva"
+  ],
+  "limitations": [
+    "A nyilvántartás nem ad nyilvános hozzáférést ügyféladatokhoz; minden export hitelesített és naplózott.",
+    "A nyilvántartás nem módosítja egyoldalúan a szerződést.",
+    "A tényleges éles szolgáltatói lista és beállítások csak a Hair-Aesthetic Clinic Kft. jóváhagyása után aktiválhatók.",
+    "A telefonos szolgáltatói útvonal jelenleg külön szolgáltatói és klinikai lezárási kapu alatt áll.",
+    "A forráskód és a szolgáltató általános szellemi tulajdona nem része az adatkivitelnek."
+  ]
+}
+
