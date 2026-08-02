@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "registerVersion": "HH-DATA-ACT-2026-08-02-01",
+  "registerVersion": "HH-DATA-ACT-2026-08-02-02",
   "publishedAt": "2026-08-02",
   "language": "hu",
   "provider": {
@@ -12,7 +12,8 @@
   "service": {
     "name": "HairHungary központi ügyfél-, beteg- és működéskezelő rendszer",
     "type": "előfizetéses, felhőalapú üzleti szoftverszolgáltatás",
-    "dataStructureRegister": "schema.json"
+    "dataStructureRegister": "schema.json",
+    "interfaceSpecification": "openapi.yaml"
   },
   "switching": {
     "requestChannel": "info@apexweb.hu",
@@ -26,7 +27,18 @@
     "standardFormats": ["UTF-8 CSV", "JSON", "eredeti dokumentum- és képformátum", "PDF ellenőrzési összesítés"],
     "authenticatedInterfaces": ["/api/export", "/api/backup/export", "/api/export-protokoll"],
     "publicAnonymousExport": false,
-    "switchingChargeFreeFrom": "2027-01-12"
+    "switchingChargeFreeFrom": "2027-01-12",
+    "commercialTerms": {
+      "standardMonthlyFeeHuf": 169000,
+      "minimumCommitmentServiceMonths": 3,
+      "setupFeeChargedAtSignatureHuf": 0,
+      "conditionallyWaivedSetupValueHuf": 1014000,
+      "setupValueAmortizationServiceMonths": 12,
+      "transitionServiceFeeRule": "Az átállási időszakban a szokásos havi szolgáltatási díj alkalmazandó; ugyanarra az időszakra külön váltási vagy kettős szolgáltatási díj nem számítható fel.",
+      "earlyTerminationRule": "A 0 forintos beépítési díj feltételes elengedése miatt kizárólag a szerződés szerinti jogszerű korai megszüntetési esetben, arányosan csökkenő, ténylegesen le nem írt beüzemelési érték számolható el. A szolgáltatóváltás önmagában nem szerződésszegés; e jogkövetkezmény nem minősíthető át váltási díjjá és nem akadályozhatja a váltást.",
+      "switchingChargeBeforeFreeDate": "2027. január 12. előtt legfeljebb a váltáshoz közvetlenül kapcsolódó, ténylegesen felmerült, előzetesen és tételesen közölt költség számítható fel.",
+      "switchingChargeOnOrAfterFreeDateHuf": 0
+    }
   },
   "portableCategories": [
     "érdeklődői és ügyfélkapcsolati adatok",
@@ -114,4 +126,3 @@
     "A forráskód és a szolgáltató általános szellemi tulajdona nem része az adatkivitelnek."
   ]
 }
-

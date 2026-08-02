@@ -36,11 +36,11 @@
     <h1>Adatfeldolgozási és szolgáltatóváltási átláthatóság</h1>
     <p class="lead">A HairHungary felhőalapú rendszer szolgáltatóváltási eljárásának, hordozható adatainak, formátumainak, adatszerkezetének és infrastruktúra-joghatóságainak verziózott összefoglalója.</p>
     <div class="meta">
-      <span class="pill">Azonosító: HH-DATA-ACT-2026-08-02-01</span>
+      <span class="pill">Azonosító: HH-DATA-ACT-2026-08-02-02</span>
       <span class="pill">Közzétéve: 2026. augusztus 2.</span>
       <span class="pill">Szolgáltató: Tokár Ádám e.v., Apex Web</span>
     </div>
-    <p><a href="register.json">Géppel olvasható nyilvántartás</a> · <a href="schema.json">33 tábla és 366 mező adatszerkezete</a></p>
+    <p><a href="register.json">Géppel olvasható nyilvántartás</a> · <a href="schema.json">33 tábla és 366 mező adatszerkezete</a> · <a href="openapi.yaml">Adatkiviteli felületek műszaki leírása</a></p>
   </header>
 
   <section>
@@ -59,6 +59,8 @@
       <li>A dokumentált átvétel és visszanyerési idő után a hordozható adatok törlése és a törlési igazolás kiadása következik, ha jogszabály nem ír elő további megőrzést.</li>
     </ol>
     <p>2027. január 12-től a kötelező váltási feladatokra külön váltási díj nem számítható fel. Addig legfeljebb a közvetlenül felmerült, előre és tételesen közölt költség terhelhető át. A kötelező váltáson túli, külön megrendelt munka nem akadályozhatja a váltást.</p>
+    <h3>Díjak és korai megszüntetés</h3>
+    <p>A szerződés szerinti havi alapszolgáltatási díj 169 000 Ft. A minimum elköteleződés 3 Szolgáltatási Hónap. Az aláíráskor felszámított beépítési díj 0 Ft; ennek feltételesen elengedett elszámolási értéke 1 014 000 Ft, amely az Élesítéstől 12 Szolgáltatási Hónap alatt arányosan nullára csökken. Kizárólag a szerződésben pontosan meghatározott jogszerű korai megszüntetési esetben számolható el a ténylegesen le nem írt rész. A szolgáltatóváltás önmagában nem szerződésszegés, e jogkövetkezmény nem válhat váltási díjjá, és megfizetése nem lehet a váltás feltétele.</p>
   </section>
 
   <section>
@@ -70,7 +72,7 @@
       <div class="item"><strong>Alapformátumok</strong>UTF-8 CSV és JSON; dokumentum és kép eredeti formátumban, JSON vagy CSV metaadatjegyzékkel; PDF emberi ellenőrzési összesítésként.</div>
     </div>
     <p>A részletes, rekordmentes adatmodell a <a href="schema.json"><code>schema.json</code></a> fájlban található. A 33 táblát és 366 mezőt a 0001-0034 migrációs lánc izolált PostgreSQL-visszajátszásából állítottuk elő.</p>
-    <p>A hitelesített felületek: <code>/api/export</code>, <code>/api/backup/export</code> és <code>/api/export-protokoll</code>. Ezek nem nyilvános adatletöltő pontok; minden hozzáférés jogosultsághoz, naplózáshoz és biztonságos átadási csatornához kötött.</p>
+    <p>A hitelesített felületek: <code>/api/export</code>, <code>/api/backup/export</code> és <code>/api/export-protokoll</code>. Ezek nem nyilvános adatletöltő pontok; minden hozzáférés jogosultsághoz, naplózáshoz és biztonságos átadási csatornához kötött. A felületek pontos, nyilvános műszaki szerződése az <a href="openapi.yaml"><code>openapi.yaml</code></a> fájlban található.</p>
   </section>
 
   <section>
@@ -108,7 +110,7 @@
     <p>A nyilvántartás frissítése nem módosítja egyoldalúan a szerződést. Eltérés esetén a kötelező jog és a HairHungary szerződés Megrendelőre kedvezőbb rendelkezése irányadó.</p>
   </section>
 
-  <footer>HH-DATA-ACT-2026-08-02-01 · Adatot nem tartalmazó nyilvános megfelelőségi nyilvántartás</footer>
+  <footer>HH-DATA-ACT-2026-08-02-02 · Adatot nem tartalmazó nyilvános megfelelőségi nyilvántartás</footer>
 </main>
 </body>
 </html>

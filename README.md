@@ -8,5 +8,5 @@ Nyilvános cím: <https://apexweb-adam.github.io/apexweb-adatfeldolgozasi-atlath
 
 - `index.html`: ember által olvasható nyilvántartás;
 - `register.json`: géppel olvasható szolgáltatásváltási és infrastruktúra-nyilvántartás;
-- `schema.json`: a HairHungary adatbázis 0001-0034 migrációs láncából izolált PostgreSQL-környezetben előállított, rekordot nem tartalmazó adatszerkezeti jegyzék.
-
+- `schema.json`: a HairHungary adatbázis 0001-0034 migrációs láncából izolált PostgreSQL-környezetben előállított, rekordot nem tartalmazó adatszerkezeti jegyzék;
+- `openapi.yaml`: a hitelesített adatkiviteli és szolgáltatóváltási felületek nyilvános műszaki leírása.
