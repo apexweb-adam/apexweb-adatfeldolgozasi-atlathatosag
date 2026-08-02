@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "registerVersion": "HH-DATA-ACT-2026-08-02-02",
+  "registerVersion": "HH-DATA-ACT-2026-08-02-03",
   "publishedAt": "2026-08-02",
   "language": "hu",
   "provider": {
@@ -35,6 +35,7 @@
       "conditionallyWaivedSetupValueHuf": 1014000,
       "setupValueAmortizationServiceMonths": 12,
       "transitionServiceFeeRule": "Az átállási időszakban a szokásos havi szolgáltatási díj alkalmazandó; ugyanarra az időszakra külön váltási vagy kettős szolgáltatási díj nem számítható fel.",
+      "providerDelayAfterTransitionRule": "Ha a váltás az alkalmazandó átállási határidőig kizárólag a szolgáltatónak felróható késedelem miatt nem fejeződik be, a szolgáltató a szerződött működést és biztonsági szintet a sikeres befejezésig fenntartja, de a határidőt követő időszakra további havi alapszolgáltatási vagy EESZT-díjat nem számíthat fel.",
       "earlyTerminationRule": "A 0 forintos beépítési díj feltételes elengedése miatt kizárólag a szerződés szerinti jogszerű korai megszüntetési esetben, arányosan csökkenő, ténylegesen le nem írt beüzemelési érték számolható el. A szolgáltatóváltás önmagában nem szerződésszegés; e jogkövetkezmény nem minősíthető át váltási díjjá és nem akadályozhatja a váltást.",
       "switchingChargeBeforeFreeDate": "2027. január 12. előtt legfeljebb a váltáshoz közvetlenül kapcsolódó, ténylegesen felmerült, előzetesen és tételesen közölt költség számítható fel.",
       "switchingChargeOnOrAfterFreeDateHuf": 0
